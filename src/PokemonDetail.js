@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import "./App.css"
+import { Card } from 'flowbite-react';
 
 function PokemonDetail({ id }) {
   const [pokemon, setPokemon] = useState(null);
@@ -25,9 +27,15 @@ function PokemonDetail({ id }) {
   if (!pokemon) return null;
 
   return (
-    <div>
-      <h2>{pokemon.name}</h2>
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+    <div className="pokemon-details w-full h-screen">
+      <div className="flex flex-row">
+        <Card className="w-96 h-96 mt-32 ml-48">
+          <p>Texto</p>
+        </Card>
+        <div className="p">
+          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+        </div>
+      </div>
     </div>
   );
 }

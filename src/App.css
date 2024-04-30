@@ -1,0 +1,19 @@
+body{
+    background-image: url("/src/images/bg_img.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.pokemon-bg{
+    background-image: url("/src/images/pokemon-bg-cropped.png");
+    background-position: center;
+    background-size: contain;
+    border-radius: 100%;
+    border: solid 3px white;
+}
+
+.pokemon-details{
+    background-image: url("/src/images/pokemon-bg.jpg");
+    background-size: cover;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Button } from "flowbite-react";
 import { Link } from 'react-router-dom';
+import "./App.css"
 
 function MainPage({ pokemons }) {
   if (!pokemons || pokemons.length === 0) {
@@ -11,13 +12,16 @@ function MainPage({ pokemons }) {
     <div className="flex flex-row flex-wrap justify-center my-6">
       {pokemons.map(pokemon => (
         <div key={pokemon.name} className="m-1">
-          <Card className="h-80">
-            <img alt={pokemon.name} src={pokemon.sprites.front_default} className="w-40 h-auto rounded-full bg-slate-200"/>
+          <Card className=" bg-cyan-300 bg-opacity-70">
+            <div className='pokemon-bg'>
+              <strong><p className="absolute ml-40">{pokemon.id}</p></strong>
+              <img alt={pokemon.name} src={pokemon.sprites.front_default} className="w-40 h-auto rounded-full"/>
+            </div>
             <h1 className="text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
             </h1>
             <Link to={`/pokemon/${pokemon.id}`}>
-              <Button color="light">
+              <Button color="light" className="mx-auto">
                 Expandir
                 <svg className="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path

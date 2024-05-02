@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import PokemonDetail from './PokemonDetail';
 import MainPage from './MainPage';
+import home from './images/home.png';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -29,6 +30,11 @@ function App() {
 
   return (
     <Router>
+      <Link to={`/`}>
+        <button className="fixed size-10 top-1 left-1 invert rounded-full">
+          <img alt="home_button" src={home}></img>
+        </button>
+      </Link>
       <Routes>
         <Route path="/" element={<MainPage pokemons={pokemons} />} />
         {pokemons.map(pokemon => (

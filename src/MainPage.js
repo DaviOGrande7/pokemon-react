@@ -1,11 +1,14 @@
 import React from 'react';
-import { Card, Button } from "flowbite-react";
+import { Card, Button, Spinner } from "flowbite-react";
 import { Link } from 'react-router-dom';
 import "./App.css"
 
 function MainPage({ pokemons }) {
   if (!pokemons || pokemons.length === 0) {
-    return <div>Loading...</div>;
+    return (<div className="flex flex-col justify-center items-center h-screen">
+              <Spinner aria-label="Center-aligned spinner example" size="xl" />
+              <div className="text-white text-4xl">Loading</div>
+            </div>);
   }
 
   return (

@@ -12,13 +12,13 @@ function MainPage({ pokemons }) {
   }
 
   return (
-    <div className="flex flex-row flex-wrap justify-center my-6">
+<div className="flex flex-row flex-wrap justify-center my-6">
       {pokemons.map(pokemon => (
-        <div key={pokemon.name} className="m-1">
-          <Card className=" bg-cyan-300 bg-opacity-70">
+        <div key={pokemon.name} className="m-1 tablet:w-1/4">
+          <Card className=" bg-cyan-300 bg-opacity-70 tablet:h-96">
             <div className='pokemon-bg'>
-              <strong><p className="absolute ml-40">{pokemon.id}</p></strong>
-              <img alt={pokemon.name} src={pokemon.sprites.front_default} className="w-40 h-auto rounded-full"/>
+              <strong><p className="absolute">{pokemon.id}</p></strong>
+              <img alt={pokemon.name} src={pokemon.sprites.front_default} className="w-40 h-auto rounded-full tablet:w-full"/>
             </div>
             <h1 className="text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
@@ -39,6 +39,7 @@ function MainPage({ pokemons }) {
         </div>
       ))}
     </div>
+
   );
 }
 

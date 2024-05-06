@@ -8,6 +8,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    screens: {
+      'tablet': {'min': '768px', 'max': '1023px'},
+      'laptop': '1024px',
+    }
   },
   plugins: [
     flowbite.plugin(),

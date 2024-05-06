@@ -42,7 +42,7 @@ function PokemonDetail({ id }) {
   };
 
   const types = pokemon.types.map(type => type.type.name);
-  const typeHtml = types.map(type => `<div class="type-${type.toLowerCase()} inline-block px-12 py-1 rounded-md mr-1 text-white font-bold text-lg">${type}</div>`).join('');
+  const typeHtml = types.map(type => `<div class="type-${type.toLowerCase()} inline-block px-12 py-1 rounded-md mr-1 text-white font-bold text-lg">${type.charAt(0).toUpperCase() + type.slice(1)}</div>`).join('');
 
   const previousId = id > 1 ? id - 1 : null;
   const nextId = id < 151 ? id + 1 : null;
@@ -53,9 +53,15 @@ function PokemonDetail({ id }) {
   };
 
   return (
-    <div className="pokemon-details w-screen h-screen flex flex-col justify-center items-center">
-      <div className="w-8/12 flex flex-wrap justify-between">
-        <Card className="w-96 h-auto bg-slate-500">
+    <div className="flex flex-col justify-center items-center p-6 tablet:p-10">
+      <div className="w-8/12 flex flex-wrap justify-between bg-blue-400 bg-opacity-70 p-10 pb-28 rounded-lg border tablet:w-full tablet:h-full">
+      <div className="w-2/5 my-auto bg-slate-500 rounded-3xl border ">
+        <img 
+          src={isShiny ? pokemon.sprites.other['official-artwork'].front_shiny : pokemon.sprites.other['official-artwork'].front_default} 
+          alt={pokemon.name} 
+          className="h-auto"/>
+      </div>
+        <Card className="w-7/12 bg-slate-500">
           <div>
             <div className="flex flex-row justify-between">
               <h2 className="text-white text-lg font-bold">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
@@ -92,14 +98,7 @@ function PokemonDetail({ id }) {
             {isShiny ? 'Switch to Default' : 'Switch to Shiny'}
           </button>
         </Card>
-      <div className="w-2/5">
-        <img 
-          src={isShiny ? pokemon.sprites.other['official-artwork'].front_shiny : pokemon.sprites.other['official-artwork'].front_default} 
-          alt={pokemon.name} 
-          className="h-auto"/>
-      </div>
-      </div>
-      <div className="fixed bottom-0 mb-8 flex flex-row justify-center left-0 right-0">
+      <div className="fixed bottom-0 mb-10 flex flex-row justify-center left-0 right-0 tablet:mb-20">
         <Link to={previousId ? `/pokemon/${previousId}` : '#'} className={`mr-2 ${previousId ? '' : 'pointer-events-none'}`}>
           <Button pill className="bg-slate-500 px-4 py-2" disabled={!previousId}>
             <HiOutlineArrowLeft className="h-6 w-6" />
@@ -110,6 +109,7 @@ function PokemonDetail({ id }) {
             <HiOutlineArrowRight className="h-6 w-6" />
           </Button>
         </Link>
+      </div>
       </div>
     </div>
   );

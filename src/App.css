@@ -13,11 +13,6 @@ body{
     border: solid 3px white;
 }
 
-.pokemon-details{
-    background-image: url("/src/images/pokemon-bg.jpg");
-    background-size: cover;
-}
-
 .type-normal {
     background-color: #A8A878;
     color: white;
